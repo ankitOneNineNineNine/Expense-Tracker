@@ -8,19 +8,18 @@
     "start": "next start",
     "lint": "next lint",
     "migrate": "npx prisma migrate dev --name init",
-    "seed": "npx tsx prisma/seed.ts"
+    "seed": "npx tsx prisma/seed.ts",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@prisma/client": "^5.9.1",
-    "axios": "^1.6.7",
     "classnames": "^2.5.1",
     "date-fns": "^3.3.1",
     "next": "14.1.0",
     "react": "^18",
     "react-datepicker": "^6.1.0",
     "react-dom": "^18",
-    "react-loading-skeleton": "^3.4.0",
-    "swr": "^2.2.4"
+    "react-loading-skeleton": "^3.4.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
@@ -36,6 +35,15 @@
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
     "url-loader": "^4.1.1",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "husky": "^8.0.0"
+  },
+  "lint-staged": {
+    "*.{jsx,js,ts,tsx}": [
+      "eslint --quiet --cache --fix"
+    ],
+    "*.{json,js,ts,jsx,tsx,html}": [
+      "prettier --write"
+    ]
   }
 }
