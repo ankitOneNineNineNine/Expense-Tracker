@@ -1,7 +1,7 @@
 import { prismaClient } from "../utils/prisma";
 import { endOfDay, endOfMonth, startOfDay, startOfMonth } from "date-fns";
 
-export type ExpenseFilterType = "category" | "today" | "date";
+export type ExpenseFilterType = "category" | "today" | "month";
 
 const getFilterPredicate = (type: ExpenseFilterType, date = new Date()) => {
   switch (type) {
@@ -18,7 +18,7 @@ const getFilterPredicate = (type: ExpenseFilterType, date = new Date()) => {
           createdAt: "desc",
         },
       };
-    case "date":
+    case "month":
       return {
         by: ["id", "amount", "title", "tag", "createdAt"],
         where: {

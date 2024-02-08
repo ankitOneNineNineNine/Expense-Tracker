@@ -4,6 +4,9 @@ import { PropsWithChildren } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+/**
+ * Loading Component
+ */
 export const LoadingSkeleton = () => {
   return (
     <section>

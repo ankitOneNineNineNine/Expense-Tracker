@@ -24,7 +24,7 @@ export const List = ({
   listClassName,
   showSubContent,
 }: {
-  filterBy: "category" | "today" | "date";
+  filterBy: ExpenseFilterType;
   date: Date;
   listClassName: string;
   showSubContent: boolean;

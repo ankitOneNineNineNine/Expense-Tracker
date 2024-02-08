@@ -7,6 +7,9 @@ import { format, formatDistance, formatRelative, subDays } from "date-fns";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+/**
+ * Simple Datepicker
+ */
 export const DatePicker = ({ date = new Date(), getSelected = (date: Date) => {} }) => {
   const [calendarOpen, setCalendarOpen] = useState(false);
   return (

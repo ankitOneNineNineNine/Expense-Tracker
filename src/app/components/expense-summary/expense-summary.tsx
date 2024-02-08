@@ -1,5 +1,8 @@
 import { getExpense } from "../../api/get-expenses";
 
+/**
+ * Expense Summary View
+ */
 export const ExpenseSummary = async () => {
   const data = await getExpense("category");
   const total = data.reduce((acc, item) => (acc += Number(item.amount)), 0);

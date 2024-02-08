@@ -1,5 +1,8 @@
 import { HouseSVG } from "../../assets/icons";
 
+/**
+ * Reusable Item Cart
+ */
 export const ItemCard = ({
   title = "",
   subContent,

@@ -1,5 +1,8 @@
 import { getCategory } from "../../api/get-categories";
 
+/**
+ * Select component for Categories
+ */
 export const CategorySelect = async () => {
   const data = await getCategory();
   return (
