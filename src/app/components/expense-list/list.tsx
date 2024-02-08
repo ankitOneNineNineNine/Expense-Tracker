@@ -34,8 +34,8 @@ export const List = ({
   const [{ payload, loading, error }, setData] = useState<{
     payload: Expense[];
     loading: boolean;
-    error: boolean;
-  }>({ payload: [], loading: true, error: false });
+    error: string;
+  }>({ payload: [], loading: true, error: "" });
 
   const revalidate = params.get("revalidate");
 
@@ -47,7 +47,7 @@ export const List = ({
           const { data } = await fetchExpense(filterBy, date);
           setData((prev) => ({ ...prev, payload: data }));
         } catch (e) {
-          setData((prev) => ({ ...prev, error: true, payload: [] }));
+          setData((prev) => ({ ...prev, error: (e as Error)?.message, payload: [] }));
         } finally {
           setData((prev) => ({ ...prev, loading: false }));
         }
@@ -58,7 +58,7 @@ export const List = ({
   if (loading) return <LoadingSkeleton />;
   return (
     <div className={classNames("max-h-[100px] lg:max-h-[150px] flex flex-col gap-3 overflow-scroll", listClassName)}>
-      {error && <ErrorComponent />}
+      {error && <ErrorComponent error={error} />}
       {!payload.length && <span>No Data</span>}
       {payload.map((expense) => (
         <ItemCard
