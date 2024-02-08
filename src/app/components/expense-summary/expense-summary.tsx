@@ -1,9 +1,11 @@
 import { getExpense } from "../../api/get-expenses";
+import { unstable_noStore as noStore } from "next/cache";
 
 /**
  * Expense Summary View
  */
 export const ExpenseSummary = async () => {
+  noStore();
   const data = await getExpense("category");
   const total = data.reduce((acc, item) => (acc += Number(item.amount)), 0);
   return (
