@@ -23,14 +23,6 @@ There are categories you can add where you can segregate expense and also see ex
 
 # Available Scripts
 
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "migrate": "npx prisma migrate dev --name init",
-    "seed": "npx tsx prisma/seed.ts",
-    "prepare": "husky install"
-
 - `dev`: Run the codebase in dev mode
 - `build`: Build Next App
 - `start`: Run the built app for prod mode
