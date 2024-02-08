@@ -1,4 +1,4 @@
-import { AddExpenseForm } from "../@expense/(.)expense/add-expense-form";
+import { AddExpenseForm } from "../components/forms/add-expense-form";
 
 export default function Page() {
   return <AddExpenseForm />;

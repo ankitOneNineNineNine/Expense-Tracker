@@ -1,5 +1,5 @@
+import { AddCategoryForm } from "@/app/components/forms/add-category-form";
 import { Modal } from "../../components/modal/modal";
-import { AddCategoryForm } from "./add-category-form";
 
 export default function Page() {
   return (

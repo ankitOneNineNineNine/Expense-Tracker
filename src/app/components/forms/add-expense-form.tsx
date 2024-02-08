@@ -1,7 +1,7 @@
 import ErrorBoundary from "@/app/components/error-boundary/error-boundary";
 import { addExpense } from "../../actions/add-expense";
-import { CategorySelect } from "../../components/category-select/category-select";
-import { SubmitButton } from "../../components/submit-button/submit-button";
+import { CategorySelect } from "../category-select/category-select";
+import { SubmitButton } from "../submit-button/submit-button";
 
 export const AddExpenseForm = () => {
   return (

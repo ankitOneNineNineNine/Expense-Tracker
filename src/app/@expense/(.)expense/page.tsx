@@ -1,5 +1,5 @@
 import { Modal } from "../../components/modal/modal";
-import { AddExpenseForm } from "./add-expense-form";
+import { AddExpenseForm } from "../../components/forms/add-expense-form";
 
 export default function Page() {
   return (
