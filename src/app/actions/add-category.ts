@@ -11,5 +11,5 @@ export async function addCategory(formData: FormData) {
   await prismaClient.category.create({
     data: rawFormData,
   });
-  redirect("/categories-list");
+  redirect("/category-list");
 }

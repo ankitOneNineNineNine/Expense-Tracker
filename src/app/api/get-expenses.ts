@@ -1,4 +1,4 @@
-import { prismaClient } from "@/app/utils/prisma";
+import { prismaClient } from "../utils/prisma";
 import { endOfDay, endOfMonth, startOfDay, startOfMonth } from "date-fns";
 
 export type ExpenseFilterType = "category" | "today" | "date";
@@ -51,8 +51,7 @@ export async function getExpense(type: ExpenseFilterType, date = new Date()) {
     ...exp,
     ...(type === "category"
       ? {
-          title:
-            categories.find((cate) => cate.id === exp.categoryId)?.name ?? "-",
+          title: categories.find((cate) => cate.id === exp.categoryId)?.name ?? "-",
           amount: exp._sum?.amount?.valueOf() ?? exp.amount.valueOf(),
         }
       : {}),

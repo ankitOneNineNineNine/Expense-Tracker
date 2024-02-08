@@ -1,8 +1,10 @@
 import { ItemCard } from "../components/item-card/item-card";
-import { getCategory } from "@/app/api/get-categories";
+import { getCategory } from "../api/get-categories";
 import { format } from "date-fns";
+import { unstable_noStore as noStore } from "next/cache";
 
-export const CategoriesList = async () => {
+export const CategoryList = async () => {
+  noStore();
   const data = await getCategory();
   return (
     <div className="max-h-[198px] overflow-scroll">

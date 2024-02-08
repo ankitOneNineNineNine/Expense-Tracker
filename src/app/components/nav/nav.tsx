@@ -1,5 +1,5 @@
 "use client";
-import { CrossSVG, HamburgerSVG } from "@/app/assets/icons";
+import { CrossSVG, HamburgerSVG } from "../../assets/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,11 +20,7 @@ export const Nav = () => {
       >
         {!openNav ? <HamburgerSVG /> : <CrossSVG className="scale-[0.8]" />}
       </button>
-      <nav
-        className={`p-10 flex flex-col font-semibold text-2xl gap-3 md:flex ${
-          openNav ? "" : "hidden"
-        }`}
-      >
+      <nav className={`p-10 flex flex-col font-semibold text-2xl gap-3 md:flex ${openNav ? "" : "hidden"}`}>
         <div className="flex flex-col gap-2 p-2">
           <Image
             src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
@@ -39,13 +35,9 @@ export const Nav = () => {
         <div className="mt-5 flex flex-col gap-3">
           {[
             { path: "/expense-list", title: "Expenses" },
-            { path: "/categories-list", title: "Category" },
+            { path: "/category-list", title: "Category" },
           ].map((nav) => (
-            <Link
-              href={nav.path}
-              key={nav.path}
-              className={isCurrentPath(nav.path) ? activeClass : ")"}
-            >
+            <Link href={nav.path} key={nav.path} className={isCurrentPath(nav.path) ? activeClass : ")"}>
               {nav.title}
             </Link>
           ))}

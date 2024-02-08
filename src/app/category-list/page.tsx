@@ -1,23 +1,18 @@
-import { ExpenseList } from "@/app/components/expense-list/expense-list";
+import { ExpenseList } from "../components/expense-list/expense-list";
 import { PlusSVG } from "../assets/icons";
-import { ItemCard } from "@/app/components/item-card/item-card";
-import { CategoriesList } from "@/app/categories-list/categories-list";
+import { ItemCard } from "../components/item-card/item-card";
+import { CategoryList } from "./category-list";
 import Link from "next/link";
 import { Suspense } from "react";
-import { LoadingSkeleton } from "@/app/components/loading/loading";
+import { LoadingSkeleton } from "../components/loading/loading";
 import ErrorBoundary from "../components/error-boundary/error-boundary";
 
-export default function Categories() {
+export default function Page() {
   return (
     <div>
       <div className="flex items-center justify-between flex-wrap">
-        <p className="max-w-[102px] font-semibold text-3xl text-text min-w-[150px]">
-          Categories
-        </p>
-        <Link
-          href="/category"
-          className="flex text-background items-center gap-2 font-semibold text-l"
-        >
+        <p className="max-w-[102px] font-semibold text-3xl text-text min-w-[150px]">Categories</p>
+        <Link href="/category" className="flex text-background items-center gap-2 font-semibold text-l">
           Add Categories
           <PlusSVG className="scale-[2]" />
         </Link>
@@ -31,7 +26,7 @@ export default function Categories() {
             </div>
             <ErrorBoundary>
               <Suspense fallback={<LoadingSkeleton />}>
-                <CategoriesList />
+                <CategoryList />
               </Suspense>
             </ErrorBoundary>
           </div>

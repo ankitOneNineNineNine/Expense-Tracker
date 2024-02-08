@@ -1,4 +1,4 @@
-import { prismaClient } from "@/app/utils/prisma";
+import { prismaClient } from "../utils/prisma";
 
 export async function getCategory() {
   return await prismaClient.category.findMany({

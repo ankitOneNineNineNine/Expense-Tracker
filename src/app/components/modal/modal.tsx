@@ -1,22 +1,11 @@
 "use client";
-import { CrossSVG } from "@/app/assets/icons";
+import { CrossSVG } from "../../assets/icons";
 import { useRouter } from "next/navigation";
 
-export const Modal = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) => {
+export const Modal = ({ title, children }: { title: string; children: React.ReactNode }) => {
   const router = useRouter();
   return (
-    <div
-      className="relative z-10"
-      aria-labelledby={title}
-      role="dialog"
-      aria-modal="true"
-    >
+    <div className="relative z-10" aria-labelledby={title} role="dialog" aria-modal="true">
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div className="absolute bg-background top-0 left-0 right-0 bottom-0 opacity-75" />
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">

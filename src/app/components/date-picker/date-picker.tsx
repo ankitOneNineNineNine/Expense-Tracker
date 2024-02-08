@@ -1,16 +1,13 @@
 "use client";
 
-import { ChevronDownSVG } from "@/app/assets/icons";
+import { ChevronDownSVG } from "../../assets/icons";
 import React, { useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { format, formatDistance, formatRelative, subDays } from "date-fns";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-export const DatePicker = ({
-  date = new Date(),
-  getSelected = (date: Date) => {},
-}) => {
+export const DatePicker = ({ date = new Date(), getSelected = (date: Date) => {} }) => {
   const [calendarOpen, setCalendarOpen] = useState(false);
   return (
     <div>

@@ -1,4 +1,4 @@
-import { HouseSVG } from "@/app/assets/icons";
+import { HouseSVG } from "../../assets/icons";
 
 export const ItemCard = ({
   title = "",

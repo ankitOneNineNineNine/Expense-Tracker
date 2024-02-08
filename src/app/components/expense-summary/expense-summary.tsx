@@ -1,4 +1,4 @@
-import { getExpense } from "@/app/api/get-expenses";
+import { getExpense } from "../../api/get-expenses";
 
 export const ExpenseSummary = async () => {
   const data = await getExpense("category");
@@ -11,9 +11,7 @@ export const ExpenseSummary = async () => {
           <div className="flex flex-col" key={item.title}>
             <div className="flex justify-between">
               <p className="font-semibold text-sm">{item.title}</p>
-              <p className="font-semibold text-xs">
-                {Intl.NumberFormat().format(+item.amount)}
-              </p>
+              <p className="font-semibold text-xs">{Intl.NumberFormat().format(+item.amount)}</p>
             </div>
             <div className="w-full pt-2 pb-4 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
               <div

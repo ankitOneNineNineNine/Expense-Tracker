@@ -1,26 +1,20 @@
 "use client";
 
-import { ExpenseFilterType } from "@/app/api/get-expenses";
+import { ExpenseFilterType } from "../../api/get-expenses";
 import classNames from "classnames";
 import { ItemCard } from "../item-card/item-card";
 import { format } from "date-fns";
-import { TagSVG } from "@/app/assets/icons";
+import { TagSVG } from "../../assets/icons";
 import { Expense } from "@prisma/client";
-import { headers } from "next/headers";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LoadingSkeleton } from "../loading/loading";
 import { ErrorComponent } from "../error-boundary/error-boundary";
-import useSWR from "swr";
 
-const fetchExpense = async (
-  filterBy: ExpenseFilterType,
-  date: Date
-): Promise<{ data: Expense[] }> => {
-  const data = await fetch(
-    `/api/expenses?filterBy=${filterBy}&date=${date.toISOString()}`,
-    { next: { tags: ["expenses"] } }
-  );
+const fetchExpense = async (filterBy: ExpenseFilterType, date: Date): Promise<{ data: Expense[] }> => {
+  const data = await fetch(`/api/expenses?filterBy=${filterBy}&date=${date.toISOString()}`, {
+    next: { tags: ["expenses"] },
+  });
   return data.json();
 };
 
@@ -63,12 +57,7 @@ export const List = ({
 
   if (loading) return <LoadingSkeleton />;
   return (
-    <div
-      className={classNames(
-        "max-h-[100px] lg:max-h-[150px] flex flex-col gap-3 overflow-scroll",
-        listClassName
-      )}
-    >
+    <div className={classNames("max-h-[100px] lg:max-h-[150px] flex flex-col gap-3 overflow-scroll", listClassName)}>
       {error && <ErrorComponent />}
       {!payload.length && <span>No Data</span>}
       {payload.map((expense) => (
@@ -78,9 +67,7 @@ export const List = ({
           subContent={
             showSubContent ? (
               <div className="flex font-semibold text-sm gap-2 text-textLight text-opacity-50">
-                <span>
-                  {expense.createdAt && format(expense.createdAt, "hh:mm a")}
-                </span>
+                <span>{expense.createdAt && format(expense.createdAt, "hh:mm a")}</span>
                 <span className="flex items-center gap-1">
                   <TagSVG className="scale-[2]" />
                   {expense.tag}
@@ -88,11 +75,7 @@ export const List = ({
               </div>
             ) : null
           }
-          rightContent={
-            <p className="text-m font-semibold">
-              {Intl.NumberFormat().format(+expense.amount)}
-            </p>
-          }
+          rightContent={<p className="text-m font-semibold">{Intl.NumberFormat().format(+expense.amount)}</p>}
         />
       ))}
     </div>

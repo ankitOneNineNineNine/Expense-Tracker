@@ -23,32 +23,35 @@ There are categories you can add where you can segregate expense and also see ex
 
 # Available Scripts
 
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "migrate": "npx prisma migrate dev --name init",
+    "seed": "npx tsx prisma/seed.ts",
+    "prepare": "husky install"
+
 - `dev`: Run the codebase in dev mode
-- `start`: Run the codebase for prod mode
+- `build`: Build Next App
+- `start`: Run the built app for prod mode
 - `lint`: Lint the project through eslint configurations (.eslintrc)
-- `lint:fix`: Link and Fix any solvable errors
-- `test`: Run unit tests
-- `coverage`: Run unit test coverage using coverage@v8
+- `migrate`: Migrate DB for your local postgres DB
+- `migrate`: Seed initial categories data into your DB
 - `prepare`: Install husky
 
-# API
+# Routes
 
-- `/[newspaper]/[section-name]`: This will hit respective API for (newspaper) and return JSION feed for section provided. The returned JSON value will be converted to RSS XML
-  <br>
-  Example: After running the project, hit `curl http://localhost:[port]/guardian/politics`
-
-  ### Supported nespaper for routes
-
-  - `Guardian` - `curl http://localhost:[port]/guardian/[section-name]`
-    <br>
-    <i> section-name needs to be in kebab-case </i>
+- `/expense-list`: This shows various cards for expenses list. It contains expense list for today, and also expense list for desired month. This can be controlled via datepicker filter.
+- `/category-list`: This shows all categories present in the app. It also shows expense based on categories
+- `/category`: This is a parallel route, which displays add category form
+- `/expense`: This is a parallel route, which displays add expense form
 
 ## How to run this project?
 
 1. Open terminal in desired drive/folder to clone the project
-2. git clone https://github.com/ankitOneNineNineNine/rss-feed.git
+2. git clone https://github.com/ankitOneNineNineNine/Expense-Tracker.git
 3. Inside the Cloned folder, Open terminal.
 4. Copy content from .env.example to .env
-5. Run the command `docker run -p <PORT>:<PORT> -it $(docker build -q .)`
+5. Run the command `npm run build && npm start`
    <br>
-   <i>The app will run on PORT 5000 based on .env.example. You can change this at your .env variable - PORT</i>
+   <i>The app will run on PORT 3000</i>

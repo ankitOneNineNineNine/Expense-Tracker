@@ -1,20 +1,14 @@
-import { addExpense } from "@/app/actions/add-expense";
-import { CategorySelect } from "@/app/components/category-select/category-select";
-import { SubmitButton } from "@/app/components/submit-button/submit-button";
+import { addExpense } from "../../actions/add-expense";
+import { CategorySelect } from "../../components/category-select/category-select";
+import { SubmitButton } from "../../components/submit-button/submit-button";
 
 export const AddExpenseForm = () => {
   return (
     <div className="w-full">
       <p className="font-semibold text-3xl text-text p-3">Add Expense</p>
-      <form
-        className="bg-white rounded px-8 pt-6 pb-8 mb-4"
-        action={addExpense}
-      >
+      <form className="bg-white rounded px-8 pt-6 pb-8 mb-4" action={addExpense}>
         <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="title"
-          >
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
             Title
           </label>
           <input
@@ -27,19 +21,13 @@ export const AddExpenseForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="category"
-          >
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="category">
             Category Name
           </label>
           <CategorySelect />
         </div>
         <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="amount"
-          >
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="amount">
             Amount
           </label>
           <input
@@ -52,10 +40,7 @@ export const AddExpenseForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="tag"
-          >
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="tag">
             Tag
           </label>
           <input

@@ -1,4 +1,4 @@
-import { getCategory } from "@/app/api/get-categories";
+import { getCategory } from "../../api/get-categories";
 
 export const CategorySelect = async () => {
   const data = await getCategory();

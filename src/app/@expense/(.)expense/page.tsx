@@ -1,4 +1,4 @@
-import { Modal } from "@/app/components/modal/modal";
+import { Modal } from "../../components/modal/modal";
 import { AddExpenseForm } from "./add-expense-form";
 
 export default function Page() {
